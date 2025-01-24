@@ -135,6 +135,8 @@ public class Paciente {
     public String toString(){
         return "Paciente : [ nombre=" + this.nombre + " edad=" + this.edad + " genero=" + this.genero + " peso=" + this.peso + " altura=" + this.altura + "]";
     }
+    
+
 
 
 }
