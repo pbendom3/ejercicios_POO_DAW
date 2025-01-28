@@ -9,6 +9,7 @@ public class Estudiante {
     private String curso;
     private int nia;
     private String email;
+    private Libro libroPrestado;
 
     public Estudiante(String nombre, String curso,String email){
 
@@ -17,7 +18,7 @@ public class Estudiante {
         this.email=email;
         contadorEstudiantes++;
         nia=contadorEstudiantes;
-
+        libroPrestado=null;
     }
 
     public Estudiante (String nombre){
@@ -58,9 +59,23 @@ public class Estudiante {
         this.email=email;
     }
 
+    public Libro getLibroPrestado() {
+        return libroPrestado;
+    }
+
+    public void setLibroPrestado(Libro libroPrestado) {
+        this.libroPrestado = libroPrestado;
+    }
+
     @Override
     public String toString(){
-        return "Estudiante : [ nombre=" + getNombre() + " curso=" + getCurso() + " nia=" + getNia() + " email=" + getEmail() + "]";
+
+        if(libroPrestado!=null){
+            return "Estudiante : [ nombre=" + getNombre() + " curso=" + getCurso() + " nia=" + getNia() + " email=" + getEmail() + " libroPrestado=" + libroPrestado.getTitulo() + "]";
+        }else{
+            return "Estudiante : [ nombre=" + getNombre() + " curso=" + getCurso() + " nia=" + getNia() + " email=" + getEmail() + "]";
+        }
+
     }
 
     public static boolean validarEmail(String email){

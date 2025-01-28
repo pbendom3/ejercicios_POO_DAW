@@ -28,11 +28,19 @@ public class Main {
         Libro libro2 = new Libro("tiburon","torres");
         System.out.println(libro2);
 
+        System.out.println(Libro.getLibrosDisponibles());
+        libro1.prestar(estudiante2);
+        System.out.println(estudiante2);
+        System.out.println(libro1);
+        System.out.println(Libro.getLibrosDisponibles());
 
+        libro1.devolver(estudiante2);
+        System.out.println(libro1);
+        System.out.println(estudiante2);
+        System.out.println(Libro.getLibrosDisponibles());
+        libro1.devolver(estudiante2);
 
-
-
-
+        libro1.estaDisponible();
 
     }
 
