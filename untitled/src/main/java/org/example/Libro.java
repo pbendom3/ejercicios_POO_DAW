@@ -11,8 +11,9 @@ public class Libro {
     private String id;
     private boolean disponible;
     private Estudiante estudiantePrestado;
+    private Editorial editorial;
 
-    public Libro(String titulo, String autor){
+    public Libro(String titulo, String autor, Editorial editorial){
 
         this.titulo=titulo;
         this.autor=autor;
@@ -21,7 +22,7 @@ public class Libro {
         librosDisponibles++;
         this.id=calcularID();//id calcular
         estudiantePrestado=null;
-
+        this.editorial=editorial;
     }
 
     private String calcularID(){
@@ -36,7 +37,7 @@ public class Libro {
         return ID_LIBROS + String.format("%03d",cantidadLibros);
     }
 
-    public void prestar(Estudiante estudiante){
+    public Prestamo prestar(Estudiante estudiante){
 
         if(disponible && estudiante.getLibroPrestado()==null) {
             disponible = false;
@@ -44,11 +45,16 @@ public class Libro {
             librosDisponibles--;
             estudiantePrestado = estudiante;
             estudiante.setLibroPrestado(this);
+            Prestamo prestamo = new Prestamo(estudiante,this);
+            System.out.println("Nuevo préstamo creado: " + prestamo);
+            return prestamo;
         } else if (estudiante.getLibroPrestado()!=null) {
             System.out.println("El estudiante " +  estudiante.getNombre() + " ya tiene un libro prestado");
         }else{
             System.out.println("El libro " + getTitulo() + " no se puede prestar. (No disponible)");
         }
+
+        return null;
 
     }
 
@@ -119,8 +125,17 @@ public class Libro {
         this.estudiantePrestado = estudiantePrestado;
     }
 
+    public Editorial getEditorial() {
+        return editorial;
+    }
+
+    public void setEditorial(Editorial editorial) {
+        this.editorial = editorial;
+    }
+
+    @Override
     public String toString(){
-        return "Libro : [ titulo=" + getTitulo() + " autor=" + getAutor() + " id=" + getId() + " disponible=" + getDisponible() + " estudiantePrestado=" + getEstudiantePrestado() + " ]";
+        return "Libro : [ titulo=" + getTitulo() + " autor=" + getAutor() + " id=" + getId() + " disponible=" + getDisponible() + " estudiantePrestado=" + getEstudiantePrestado() + " editorial=" + getEditorial() + " ]";
     }
 
 

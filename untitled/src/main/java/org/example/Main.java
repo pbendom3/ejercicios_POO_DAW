@@ -23,13 +23,17 @@ public class Main {
             System.out.println("El email no cumple con el formato");
         }
 
-        Libro libro1 = new Libro("el principito","quevedo");
+        Editorial editorial1 = new Editorial("ANAYA","ESPAÑA");
+        System.out.println(editorial1);
+
+        Libro libro1 = new Libro("el principito","quevedo",editorial1);
         System.out.println(libro1);
-        Libro libro2 = new Libro("tiburon","torres");
+        Libro libro2 = new Libro("tiburon","torres", editorial1);
         System.out.println(libro2);
 
         System.out.println(Libro.getLibrosDisponibles());
-        libro1.prestar(estudiante2);
+        Prestamo prestamo1 = libro1.prestar(estudiante2);
+        System.out.println(prestamo1);
         System.out.println(estudiante2);
         System.out.println(libro1);
         System.out.println(Libro.getLibrosDisponibles());
@@ -43,8 +47,5 @@ public class Main {
         libro1.estaDisponible();
 
     }
-
-
-
 
 }
