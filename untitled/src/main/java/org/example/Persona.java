@@ -5,6 +5,18 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String dni;
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", dni='" + dni + '\'' +
+                ", sexo=" + sexo +
+                ", edad=" + edad +
+                '}';
+    }
+
     private char sexo;
     private int edad;
 
@@ -72,6 +84,8 @@ public class Persona {
         System.out.println(this.nombre +" " + this.apellido +" " + this.dni +" " + this.sexo +" " + this.edad);
 
     }
+
+
 
 
 
