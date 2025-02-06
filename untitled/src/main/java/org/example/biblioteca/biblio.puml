@@ -1,0 +1,66 @@
+@startuml
+
+class Estudiante {
+    - String nombre
+    - String curso
+    - int nia
+    - String email
+    - ArrayList<Libro> librosPrestados
+    + Estudiante(String, String, String)
+    + Estudiante(String)
+    + static int obtenerTotalEstudiantes()
+    + String getNombre()
+    + String getCurso()
+    + int getNia()
+    + String getEmail()
+    + void anyadirLibro(Libro)
+    + void borrarLibro(Libro)
+    + ArrayList<Libro> getLibrosPrestados()
+    + static boolean validarEmail(String)
+}
+
+class Libro {
+    - String titulo
+    - String autor
+    - String id
+    - boolean disponible
+    - Estudiante estudiantePrestado
+    - Editorial editorial
+    + Libro(String, String, Editorial)
+    + Prestamo prestar(Estudiante)
+    + void devolver(Estudiante)
+    + boolean getDisponible()
+    + String getId()
+    + String getTitulo()
+    + String getAutor()
+    + static int getLibrosDisponibles()
+    + static int getTotalLibros()
+}
+
+class Prestamo {
+    - Estudiante estudiante
+    - Libro libro
+    - LocalDate fecha
+    + Prestamo(Estudiante, Libro)
+    + LocalDate getFecha()
+    + Libro getLibro()
+    + Estudiante getEstudiante()
+}
+
+class Editorial {
+    - String nombre
+    - String pais
+    - ArrayList<Libro> librosPublicados
+    + Editorial(String, String)
+    + void insertarLibro(Libro)
+    + void borrarLibro(Libro)
+}
+
+Estudiante "1" o-- "*" Libro : "presta"
+Libro "1" o-- "1" Editorial : "pertenece a"
+Prestamo "1" o-- "1" Estudiante : "es prestado a"
+Prestamo "1" o-- "1" Libro : "es para"
+
+@enduml
+
+

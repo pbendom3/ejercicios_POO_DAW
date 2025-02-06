@@ -137,11 +137,10 @@ public class Libro {
     @Override
     public String toString(){
 
-<<<<<<< HEAD:untitled/src/main/java/org/example/biblioteca/Libro.java
         return "Libro : [ titulo=" + getTitulo() + " autor=" + getAutor() + " id=" + getId() + " disponible=" + getDisponible() + " estudiantePrestado=" + getEstudiantePrestado()+ " editorial=" + editorial.getNombre() + " ]";
-=======
-        return "Libro : [ titulo=" + getTitulo() + " autor=" + getAutor() + " id=" + getId() + " disponible=" + getDisponible() + " estudiantePrestado=" + getEstudiantePrestado() + " editorial=" + editorial.getNombre() +  " ]";
->>>>>>> 2dda58296fa2e93127601b4a1741b16a834ad3a0:untitled/src/main/java/org/example/Libro.java
+
+        //return "Libro : [ titulo=" + getTitulo() + " autor=" + getAutor() + " id=" + getId() + " disponible=" + getDisponible() + " estudiantePrestado=" + getEstudiantePrestado() + " editorial=" + editorial.getNombre() +  " ]";
+
     }
 
 
