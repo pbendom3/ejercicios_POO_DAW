@@ -25,6 +25,11 @@ public class Concierto {
 
         for (Persona p : personas) {
             p.mostrarInfo(); //se ejecuta la versión sobrescrita de cada subclase
+
+            if(p instanceof Organizable && p instanceof Promocionable){
+                ((Organizable) p).organizarEvento();
+                ((Promocionable) p).promocionar();
+            }
         }
 
 

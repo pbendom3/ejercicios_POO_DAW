@@ -1,6 +1,6 @@
 package festival;
 
-public class Organizador extends Persona{
+public class Organizador extends Persona implements Organizable,Promocionable{
 
     private String rol;
 
@@ -14,6 +14,11 @@ public class Organizador extends Persona{
         System.out.println("ROl: " + rol);
     }
 
+    public void organizarEvento() {
+        System.out.println("Organizando el cotarro");
+    }
 
-
+    public void promocionar() {
+        System.out.println("Promocionando...");
+    }
 }
