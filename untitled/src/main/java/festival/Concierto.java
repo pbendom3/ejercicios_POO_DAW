@@ -1,9 +1,9 @@
 package festival;
 
 public class Concierto {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EdadValidaException {
 
-        Asistente a1 = new Asistente("Carlos", 25, "VIP");
+        Asistente a1 = new Asistente("Carlos", 15, TipoEntrada.VIP);
         Artista art1 = new Artista("Dua Lipa", 28, "Pop");
 
         System.out.println("Información del asistente:");
@@ -18,7 +18,7 @@ public class Concierto {
         org.mostrarInfo();
 
         Persona[] personas = {
-                new Asistente("Lucas", 18, "VIP"),
+                new Asistente("Lucas", 18, TipoEntrada.VIP),
                 new Artista("Sofía", 25, "Rock Alternativo"),
                 new Organizador("Martín", 30, "Producción")
         };
@@ -30,6 +30,13 @@ public class Concierto {
                 ((Organizable) p).organizarEvento();
                 ((Promocionable) p).promocionar();
             }
+
+
+
+        }
+
+        for (TipoEntrada entrada : TipoEntrada.values()){
+            System.out.println("Entrada de tipo " + entrada +  " con un precio de " + entrada.getPrecio() + "€");
         }
 
 

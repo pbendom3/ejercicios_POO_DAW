@@ -31,5 +31,48 @@ public class AppPokedex {
 
         }
 
+        Pokemon raichu = new Pokemon(200) {
+            @Override
+            public void atacar() {
+                System.out.println("BOLA VOLTIOOOOOOO");
+            }
+        };
+
+        raichu.atacar();
+        raichu.imprimirNivel();
+
+        AtaquesAgua ataques = new AtaquesAgua() {
+            @Override
+            public void pistolaAgua() {
+                System.out.println("FLIS FLIS");
+            }
+
+            @Override
+            public void salpicadura() {
+                System.out.println("PLASSSSSH");
+            }
+
+            @Override
+            public void surf() {
+                System.out.println("OLAAAAA OEEE");
+            }
+
+            @Override
+            public void hidroBomba() {
+                System.out.println("BUMBUM");
+            }
+        };
+
+        ataques.salpicadura();
+        ataques.pistolaAgua();
+
+        Fuego charizard = new Fuego(300){
+            @Override
+            public void atacar(){
+                System.out.println("BOLA FUEGOOOOOOO");
+            }
+        };
+
+        charizard.atacar();
     }
 }
